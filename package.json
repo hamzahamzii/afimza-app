@@ -1,0 +1,32 @@
+{
+  "name": "afimza",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hamzahamzii/afimza.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hamzahamzii/afimza/issues"
+  },
+  "homepage": "https://github.com/hamzahamzii/afimza#readme",
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.2",
+    "lodash": "^4.17.21",
+    "mongoose": "^6.1.5",
+    "path": "^0.12.7"
+  },
+  "engines": {
+    "node": "17.1.0"
+  }
+}
