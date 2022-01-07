@@ -11,7 +11,6 @@ import Typography from "@mui/material/Typography";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { removeThought } from "../store/actions";
 
-import { baseUrl } from "../globals";
 import axios from "axios";
 
 const Thought = (props) => {
@@ -20,7 +19,7 @@ const Thought = (props) => {
   const trimId = (id) => id.toString().slice(-4);
 
   const deleteThought = (id) => {
-    axios.delete(`${baseUrl}/thoughts/${id}`).then((res) => {
+    axios.delete(`/thoughts/${id}`).then((res) => {
       console.log(res);
       dispatch(removeThought(id));
     });

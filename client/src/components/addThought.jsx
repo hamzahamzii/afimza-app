@@ -10,7 +10,6 @@ import Button from "@mui/material/Button";
 import { addThought } from "../store/actions";
 
 import axios from "axios";
-import { baseUrl } from "../globals";
 
 const AddThought = (props) => {
   const dispatch = useDispatch();
@@ -30,7 +29,7 @@ const AddThought = (props) => {
 
   const submit = () => {
     axios
-      .post(`${baseUrl}/thoughts`, {
+      .post("/thoughts", {
         thought,
         details,
       })

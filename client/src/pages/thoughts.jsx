@@ -10,7 +10,6 @@ import { setThoughts } from "../store/actions";
 import Button from "@mui/material/Button";
 
 import axios from "axios";
-import { baseUrl } from "../globals";
 
 const ThoughtsPage = () => {
   const dispatch = useDispatch();
@@ -19,7 +18,7 @@ const ThoughtsPage = () => {
 
   useEffect(() => {
     if (!thoughts) {
-      axios.get(`${baseUrl}/thoughts`).then((res) => {
+      axios.get("/thoughts").then((res) => {
         dispatch(setThoughts(res.data));
       });
     }
