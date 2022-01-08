@@ -19,6 +19,7 @@ const GalleryPage = () => {
         {itemData.map((item) => (
           <ImageListItem key={item}>
             <img
+              className="cursor-pointer"
               src={`${item}?w=248`}
               srcSet={`${item}?w=248&dpr=2 2x`}
               onClick={() => {
