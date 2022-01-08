@@ -2,11 +2,7 @@ import React from "react";
 
 class UpcomingPage extends React.Component {
   render() {
-    return (
-      <div>
-        <h2>Upcoming</h2>
-      </div>
-    );
+    return <h1 className="p-3 text-3xl">UPCOMING</h1>;
   }
 }
 
