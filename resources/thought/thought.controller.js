@@ -12,7 +12,7 @@ const getAll = async (req, res) => {
 
 const deleteOne = async (req, res) => {
   const id = req.params.id;
-  const deleted = await Thought.findByIdAndDelete(req.params.id);
+  const deleted = await Thought.findByIdAndDelete(id);
   res.json({ deleted, message: "del done" });
 };
 
