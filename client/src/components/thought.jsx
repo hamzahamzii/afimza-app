@@ -17,7 +17,7 @@ const Thought = (props) => {
   const trimId = (id) => id.toString().slice(-4);
 
   const deleteThought = (id) => {
-    axios.delete(`/thoughts/${id}`).then((res) => {
+    axios.delete(`/api/thoughts/${id}`).then((res) => {
       dispatch(removeThought(id));
     });
   };

@@ -18,3 +18,16 @@ export const removeThought = (id) => {
     id,
   };
 };
+
+export const setUser = (user) => {
+  return {
+    type: "setUser",
+    user,
+  };
+};
+
+export const resetUser = () => {
+  return {
+    type: "resetUser",
+  };
+};

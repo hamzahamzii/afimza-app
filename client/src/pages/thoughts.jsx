@@ -18,7 +18,7 @@ const ThoughtsPage = () => {
 
   useEffect(() => {
     if (!thoughts) {
-      axios.get("/thoughts").then((res) => {
+      axios.get("/api/thoughts").then((res) => {
         dispatch(setThoughts(res.data));
       });
     }

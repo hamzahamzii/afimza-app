@@ -29,7 +29,7 @@ const AddThought = (props) => {
 
   const submit = () => {
     axios
-      .post("/thoughts", {
+      .post("/api/thoughts", {
         thought,
         details,
       })
