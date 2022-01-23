@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -11,6 +11,9 @@ import UpcomingPage from "./pages/upcoming";
 import HomePage from "./pages/home";
 import LoginPage from "./pages/login";
 
+import Backdrop from "@mui/material/Backdrop";
+import CircularProgress from "@mui/material/CircularProgress";
+
 import { useDispatch, useSelector } from "react-redux";
 import { setUser } from "./store/actions";
 
@@ -22,22 +25,29 @@ import { ThemeProvider } from "@mui/material/styles";
 import theme from "./theme";
 
 const App = () => {
+  const [loader, setLoader] = useState(false);
+
   const dispatch = useDispatch();
   const user = useSelector((state) => state.userReducer);
 
   const getUser = async () => {
     try {
+      setLoader(true);
       const res = await axios.get("/auth/validate");
+      setLoader(false);
       localStorage.setItem("user", JSON.stringify(res.data));
       dispatch(setUser(res.data));
     } catch (err) {
+      setLoader(false);
       console.log("error", err);
     }
   };
 
   useEffect(() => {
     if (!user) getUser();
-  });
+  }, [user]);
+
+  useEffect(() => {}, [loader]);
 
   return (
     <ThemeProvider theme={theme}>
@@ -56,6 +66,12 @@ const App = () => {
             </Route>
           </Routes>
         </Router>
+        <Backdrop
+          sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+          open={loader}
+        >
+          <CircularProgress color="inherit" />
+        </Backdrop>
       </div>
     </ThemeProvider>
   );
