@@ -3,17 +3,35 @@ import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 import ImagePreview from "../components/imagePreview";
 
+import Button from "@mui/material/Button";
+import AddImage from "../components/addImage";
+
 const GalleryPage = () => {
+  const [addImage, setAddImage] = useState(false);
+
   const [preview, setPreview] = useState(false);
   const [selectedImage, setSelectedImage] = useState("");
   return (
-    <div className="flex flex-col justify-center items-center">
-      <div className="text-4xl m-2 font-thin">Gallery</div>
+    <div className="flex flex-col px-8 justify-center items-center">
+      <div className="flex w-full justify-between items-center">
+        <div className="text-4xl m-2 font-thin">Gallery</div>
+        <label htmlFor="contained-button-file">
+          <Button
+            onClick={() => setAddImage(true)}
+            size="small"
+            variant="contained"
+            component="span"
+          >
+            Upload
+          </Button>
+        </label>
+      </div>
+      <AddImage onClose={() => setAddImage(false)} open={addImage} />
       <ImageList
         variant="masonry"
         cols={4}
         gap={2}
-        sx={{ width: "80%", height: 1000, px: 2 }}
+        sx={{ height: 1000 }}
         rowHeight={264}
       >
         {itemData.map((item) => (

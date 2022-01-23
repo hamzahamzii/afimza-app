@@ -22,7 +22,9 @@ const ThoughtsPage = () => {
         dispatch(setThoughts(res.data));
       });
     }
-  });
+  }, [thoughts]);
+
+  useEffect(() => {}, [writingThought]);
 
   return (
     <div className="p-3">
@@ -37,8 +39,13 @@ const ThoughtsPage = () => {
         written down. Wishing your thoughts to be peacefull.
       </div>
 
+      {writingThought ? "yes" : "no"}
+
       <AddThought
-        onClose={() => setWritingThought(false)}
+        onClose={() => {
+          console.log("onclose called");
+          setWritingThought(false);
+        }}
         open={writingThought}
       />
 
