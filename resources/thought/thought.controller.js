@@ -5,6 +5,12 @@ const addOne = async (req, res) => {
   res.json(thought);
 };
 
+const updateOne = async (req, res) => {
+  const id = req.params.id;
+  const updated = await Thought.findOneAndUpdate(id, req.body);
+  res.json({ updated, message: "updated" });
+};
+
 const getAll = async (req, res) => {
   const thoughts = await Thought.find();
   res.json(thoughts);
@@ -16,8 +22,11 @@ const deleteOne = async (req, res) => {
   res.json({ deleted, message: "del done" });
 };
 
+
+
 module.exports = {
   addOne,
   getAll,
   deleteOne,
+  updateOne,
 };

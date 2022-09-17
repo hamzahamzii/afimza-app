@@ -43,7 +43,6 @@ const ThoughtsPage = () => {
 
       <AddThought
         onClose={() => {
-          console.log("onclose called");
           setWritingThought(false);
         }}
         open={writingThought}

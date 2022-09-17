@@ -6,6 +6,8 @@ const thoughtsReducer = (state = null, action) => {
       return [...state, action.payload];
     case "removeThought":
       return [...state.filter((thought) => thought._id !== action.id)];
+    case "updateThought":
+      return [...state.map((thought) => thought._id === action.id ? thought = action.payload : thought)];
     default:
       return state;
   }

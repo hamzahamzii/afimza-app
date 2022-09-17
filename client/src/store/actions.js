@@ -5,6 +5,13 @@ export const setThoughts = (payload) => {
   };
 };
 
+export const updateThought = (payload) => {
+  return {
+    type: "updateThought",
+    payload,
+  };
+};
+
 export const addThought = (payload) => {
   return {
     type: "addThought",
@@ -18,6 +25,8 @@ export const removeThought = (id) => {
     id,
   };
 };
+
+
 
 export const setUser = (user) => {
   return {
